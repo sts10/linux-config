@@ -46,7 +46,7 @@ Install Chrome from (https://www.google.com/chrome/browser/desktop/index.html). 
 - **Next thing to try**: all of this: https://websiteforstudents.com/installing-the-latest-flash-player-on-ubuntu-17-10/
 
 ## Dev Environment
-1. Install rbenv and Ruby 2.4.1
+1. Install [rbenv (via "basic github checkout")](https://github.com/rbenv/rbenv#basic-github-checkout) and an up-to-date Ruby (and set that to global).
 2. Install Rust with `curl https://sh.rustup.rs -sSf | sh`
     - Needed to add `export PATH="$HOME/.cargo/bin:$PATH"` to end of `~/.bashrc`
     - you can uninstall at anytime with `rustup self uninstall`
