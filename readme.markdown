@@ -61,6 +61,7 @@ Install Chrome from (https://www.google.com/chrome/browser/desktop/index.html). 
    5. `bundle exec install`
 
    - To publish changes: commit changes, then run `bundle exec jekyll build`, then `git push origin master`
+5. [Disable blinking cursor in gnome-terminal](https://askubuntu.com/a/947573): In terminal: `gsettings set org.gnome.desktop.interface cursor-blink false`
 
 ## Changing Default Fonts
 Weirdly the only place I could find this is in Gnome Tweak Tool. Here are the defaults and what I changed them to:
