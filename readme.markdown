@@ -31,6 +31,7 @@ curl -o ~/.config/nvim/init.vim https://raw.githubusercontent.com/sts10/linux-co
 2. I then installed KeePassXC with `snap install keepassxc`
 3. Next, I installed Syncthing via the instructions at the top of [this page](https://apt.syncthing.net/)
 4. I then setup Syncthing, including my KeePass database. 
+5. For a GPG GUI application, ["GNU Privacy Assistant"](https://help.ubuntu.com/community/GnuPrivacyGuardHowto#Graphical_Interfaces) gets the job done. To install it, I ran: `sudo apt install gpa`.
 
 ## Other Apps
 1. Installed Wire desktop via [these instructions](https://medium.com/@wireapp/a-step-forward-for-wire-for-linux-52f0538cac15)
