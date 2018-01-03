@@ -1,0 +1,16 @@
+[/]
+foreground-color='rgb(240,253,255)'
+visible-name='Sam'
+palette=['rgb(111,152,179)', 'rgb(208,135,133)', 'rgb(133,153,0)', 'rgb(181,137,0)', 'rgb(252,219,217)', 'rgb(211,54,130)', 'rgb(42,161,152)', 'rgb(238,232,213)', 'rgb(111,152,179)', 'rgb(203,75,22)', 'rgb(253,248,206)', 'rgb(97,162,185)', 'rgb(166,184,204)', 'rgb(108,113,196)', 'rgb(147,161,161)', 'rgb(253,246,227)']
+cursor-background-color='rgb(246,246,246)'
+cursor-shape='block'
+cursor-colors-set=true
+use-theme-colors=false
+use-transparent-background=true
+cursor-foreground-color='rgb(42,46,56)'
+font='DejaVu Sans Mono 16'
+bold-color-same-as-fg=true
+bold-color='rgb(111,152,179)'
+background-color='rgb(42,46,56)'
+background-transparency-percent=4
+scrollbar-policy='never'

@@ -17,6 +17,24 @@ I've got a few `.bashrc`s for you in the `bash` directory. The one called `bashr
 curl -o ~/.bashrc https://raw.githubusercontent.com/sts10/linux-config/master/bash/bashrc
 ```
 
+## Gnome-terminal profile
+
+Via [this gist](https://gist.github.com/reavon/0bbe99150810baa5623e5f601aa93afc): 
+
+Load our profile with: 
+
+```bash
+dconf load /org/gnome/terminal/legacy/profiles:/:da23a4a8-af92-46a8-ad3e-65fa07a0e113/ < gnome-terminal-config/pink-moon-profile.dconf
+```
+
+Or `cd` into the `gnome-terminal-config` directory in this repo and run:
+
+```bash
+dconf load /org/gnome/terminal/legacy/profiles:/:da23a4a8-af92-46a8-ad3e-65fa07a0e113/ < pink-moon-profile.dconf
+```
+
+If there's a problem, `dconf dump /org/gnome/terminal/legacy/profiles:/` might be helpful, as it lists the profiles loaded on your system.
+
 ## Neovim
 
 I think I used the stable ppa and followed [these instructions](https://github.com/neovim/neovim/wiki/Installing-Neovim#ubuntu). A decent init.vim file is contained in this repo. 
