@@ -85,8 +85,8 @@ Install Chrome from (https://www.google.com/chrome/browser/desktop/index.html). 
 ## Changing Default Fonts
 Weirdly the only place I could find this is in Gnome Tweak Tool. Here are the defaults and what I changed them to:
 ```
-  - Window title: Fira Sans SemiBold 10 --> Noto Sans CJK TC Bold 10
-  - Interface: Fira Sans Book 10        --> Noto Sans CJK TC Regular 10
+  - Window title: Fira Sans SemiBold 10 --> Noto Sans CJK KR Bold 10
+  - Interface: Fira Sans Book 10        --> Noto Sans CJK KR Regular 10
   - Document: Roboto Slab Regular 11    --> IBM Plex Sans Regular 11
   - Monospace: Fira Mono Regular 11     --> Deja Vu Sans Mono Book 11
 ```
