@@ -54,10 +54,11 @@ curl -o ~/.config/nvim/init.vim https://raw.githubusercontent.com/sts10/linux-co
 ## Other Apps
 1. Installed Wire desktop via [these instructions](https://medium.com/@wireapp/a-step-forward-for-wire-for-linux-52f0538cac15)
 2. [Download and install Signal](https://signal.org/download/)
-3. Install Ricochet from the POP store.
+3. Install Ricochet from the POP store (though check version).
 4. Install Tor Browser (forget how exactly I did this-- maybe Tor Browser Launcher? From POP store?)
-5. Install Chromium via the POP app store if you like.
-6. Install Standard Notes app from [their site](https://standardnotes.org/getting-started?downloaded=linux)
+5. To install OnionShare, I followed the "Ubuntu" instructions on their [download page](https://onionshare.org/#downloads) and added their PPA. (The version in the POP store was 0.9 -- too old for me.) 
+6. Install Chromium via the POP app store if you like.
+7. Install Standard Notes app from [their site](https://standardnotes.org/getting-started?downloaded=linux)
 
 ## Flash/Chrome
 Install Chrome from (https://www.google.com/chrome/browser/desktop/index.html). The downloaded file open in Eddy. One click install!!
