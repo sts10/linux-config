@@ -1,6 +1,6 @@
 # Notes on Initial Linux Desktop Setup (Pop_OS! and Gnome)
 
-## Some System-Level Basics
+## Some System-Level Basics (Gnome)
 1. In settings > "Mouse and Track Pad", put "Mouse Speed" about in the dead center and turn off "Natural Scrolling"
 2. In Gnome Keyboard settings, change "Switch windows of an application" OR "Switch windows of an app directly" to "Super + Escape"
   - You may also want to remap commands like "View split on left" and "Move one monitor left", as well as the Workspace commands
