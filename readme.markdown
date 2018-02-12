@@ -116,3 +116,9 @@ pgrep scdaemon
 You can now encrypt and decrypt files with the pgp keys on your smartkey using the gpg2 command line tool. To decrypt a file run something like this: `gpg --output test --decrypt '/home/schlinkert/keepass-databases/key-files/fly1.key.gpg'`. Check that you can decrypt a keepass database AND that you can alter settings.
 
 For a GPG GUI application, try `sudo apt install gpa` which installs a program called ["GNU Privacy Assistant"](https://help.ubuntu.com/community/GnuPrivacyGuardHowto#Graphical_Interfaces)
+
+### System76/Pop!\_OS Links
+
+[Support articles](http://support.system76.com/articles/)
+
+[Pop Docs](http://pop.system76.com/docs/)
