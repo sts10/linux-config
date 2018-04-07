@@ -141,6 +141,14 @@ if ! shopt -oq posix; then
 fi
 
 
+# kind of janky way to upgrade rbenv if you used the basic Git checkout 
+# method
+function rbenv_upgrade {
+  cd /home/schlinkert/.rbenv && git pull
+  cd /home/schlinkert/.rbenv/plugins/ruby-build && git pull
+  cd ~
+}
+
 # For Rust
 export PATH="$HOME/.cargo/bin:$PATH"
 
