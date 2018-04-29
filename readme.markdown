@@ -67,12 +67,12 @@ Install Chrome from (https://www.google.com/chrome/browser/desktop/index.html). 
 
 ## Dev Environment
 1. Install [rbenv (via "basic github checkout")](https://github.com/rbenv/rbenv#basic-github-checkout) and an up-to-date Ruby (and set that to global).
-2. Install Rust with `curl https://sh.rustup.rs -sSf | sh`
-    - Needed to add `export PATH="$HOME/.cargo/bin:$PATH"` to end of `~/.bashrc`
-    - you can uninstall at anytime with `rustup self uninstall`
+2. [Install Rust](https://www.rust-lang.org/en-US/install.html) with `curl https://sh.rustup.rs -sSf | sh`
+    - I needed to add `export PATH="$HOME/.cargo/bin:$PATH"` to end of `~/.bashrc`, which is likely in the included bashrc in this repo.
+    - Note: you can uninstall at anytime with `rustup self uninstall`
 3. Setup Github
-  a. set git username and email
-  b. Google for Github setup-- you're going to need to generate a new shh key pair on your machine, then upload the public key to Github. I followed [these instructions](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/), creating an ssh key locally, with a passphrase that I stored in my fly keepass database.
+   1. set git username and email
+   2. Google for Github setup-- you're going to need to generate a new shh key pair on your machine, then upload the public key to Github. I followed [these instructions](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/), creating an ssh key locally, with a passphrase that I stored in my fly keepass database.
 4. Install and set up Jekyll for my Github blog:
    1. Be sure rbenv is set up and a modern version of Ruby is set to global.
    2. `gem install jekyll bundler`
@@ -83,10 +83,10 @@ Install Chrome from (https://www.google.com/chrome/browser/desktop/index.html). 
    - To publish changes: commit changes, then run `bundle exec jekyll build`, then `git push origin master`
 5. [Disable blinking cursor in gnome-terminal](https://askubuntu.com/a/947573): In terminal: `gsettings set org.gnome.desktop.interface cursor-blink false`
 
-You can upgrade rbenv with `rbenv_upgrade` (found in `bashrc`).
+You can update the Ruby versions available to rbenv by running `rbenv_upgrade` (found in `bashrc`).
 
 ## Changing Default Fonts
-Weirdly the only place I could find this is in Gnome Tweak Tool. Here are the defaults and what I changed them to:
+Weirdly the only place I could find this is in Gnome Tweak Tool (which I think I installed via the GUI Pop software store). Here are the defaults and what I changed them to:
 ```
   - Window title: Fira Sans SemiBold 10 --> Noto Sans CJK KR Bold 10
   - Interface: Fira Sans Book 10        --> Noto Sans CJK KR Regular 10
@@ -94,12 +94,12 @@ Weirdly the only place I could find this is in Gnome Tweak Tool. Here are the de
   - Monospace: Fira Mono Regular 11     --> Deja Vu Sans Mono Book 11
 ```
 
-You can [download IBM Plex here](https://ibm.github.io/type/).
+You can [download IBM Plex here](https://github.com/IBM/plex).
 
 ## General tips:
 
 ### How to Mount an external harddrive that's formatted as exFAT
-Simply install these programs: `sudo apt-get install exfat-fuse exfat-utils` ([via](https://www.reddit.com/r/Ubuntu/comments/6r954q/mount_exfat_drive_in_ubuntu_1704/)). 
+Simply install these programs by running this line: `sudo apt-get install exfat-fuse exfat-utils` ([via](https://www.reddit.com/r/Ubuntu/comments/6r954q/mount_exfat_drive_in_ubuntu_1704/)). 
 
 ### Using a PGP private key from a Smartcard on Ubuntu
 
