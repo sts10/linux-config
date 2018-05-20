@@ -125,6 +125,10 @@ Once you've got the USB stick in the computer, reboot your system. You’ll need
 
 If you're NOT going with Pop_OS, you'll likely need to install System76 drivers and the appropriate NVIDIA drivers. [More info on this here](https://support.system76.com/articles/system76-driver/).
 
+### Generic Upgrade Line
+
+On the command line, `sudo apt-get update && sudo apt-get dist-upgrade` is a good way to upgrade everything.
+
 ### Redshift + Xorg + KDE
 
 If you're running KDE and Xorg, you'll likely need to use Redshift to tint your screen at night. "Redshift Control" is a KDE widget that gives you a nice GUI to configure Redshift (found by searching the "Get new widgets" interface).
