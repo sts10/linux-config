@@ -4,7 +4,7 @@
 1. In settings > "Mouse and Track Pad", put "Mouse Speed" about in the dead center and turn off "Natural Scrolling"
 2. In Gnome Keyboard settings, change "Switch windows of an application" OR "Switch windows of an app directly" to "Super + Escape"
   - You may also want to remap commands like "View split on left" and "Move one monitor left", as well as the Workspace commands
-3. Download the Gnome Tweaks Tool via the POP app store. In Tweaks:
+3. Download the Gnome Tweaks Tool via the Pop app store. In Tweaks:
   - Remap Caps Lock to Control in "Keyboard & Mouse" > "Additional Layout Options". 
   - Suggested: Change "Mouse" "Acceleration Profile" to "Flat"
 4. Change your desktop background!
@@ -118,6 +118,16 @@ pgrep scdaemon
 You can now encrypt and decrypt files with the pgp keys on your smartkey using the gpg2 command line tool. To decrypt a file run something like this: `gpg --output test --decrypt '/home/schlinkert/keepass-databases/key-files/fly1.key.gpg'`. Check that you can decrypt a keepass database AND that you can alter settings.
 
 For a GPG GUI application, try `sudo apt install gpa` which installs a program called ["GNU Privacy Assistant"](https://help.ubuntu.com/community/GnuPrivacyGuardHowto#Graphical_Interfaces)
+
+### Putting a new distro on Oryx Pro
+
+Once you've got the USB stick in the computer, reboot your system. You’ll need to tell the computer to boot from the live disk by holding F7 or F1 [source](http://support.system76.com/articles/live-disk/). 
+
+If you're NOT going with Pop_OS, you'll likely need to install System76 drivers and the appropriate NVIDIA drivers. [More info on this here](https://support.system76.com/articles/system76-driver/).
+
+### Redshift + Xorg + KDE
+
+If you're running KDE and Xorg, you'll likely need to use Redshift to tint your screen at night. "Redshift Control" is a KDE widget that gives you a nice GUI to configure Redshift (found by searching the "Get new widgets" interface).
 
 ### System76/Pop!\_OS Links
 
