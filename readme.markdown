@@ -96,6 +96,10 @@ Weirdly the only place I could find this is in Gnome Tweak Tool (which I think I
 
 You can [download IBM Plex here](https://github.com/IBM/plex).
 
+## Images/Video
+
+For editing RAW photos, try Darktable. Here are some [free film emulators](https://github.com/t3mujin/t3mujinpack). There's also GIMP and Kdenlive (for video)!
+
 ## General tips:
 
 ### How to Mount an external harddrive that's formatted as exFAT
