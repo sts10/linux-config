@@ -142,3 +142,5 @@ If you're running KDE and Xorg, you'll likely need to use Redshift to tint your 
 [Support articles](http://support.system76.com/articles/)
 
 [Pop Docs](http://pop.system76.com/docs/)
+
+[Installing System76 and appropriate NVIDIA drivers for System76 machine](https://support.system76.com/articles/system76-driver/)
