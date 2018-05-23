@@ -82,14 +82,15 @@ Install Chrome from (https://www.google.com/chrome/browser/desktop/index.html). 
 ### Rust
 
 [Install Rust](https://www.rust-lang.org/en-US/install.html) with `curl https://sh.rustup.rs -sSf | sh`
-    - I needed to add `export PATH="$HOME/.cargo/bin:$PATH"` to end of `~/.bashrc`, which is likely in the included bashrc in this repo.
-    - Note: you can uninstall at anytime with `rustup self uninstall`
+
+- I needed to add `export PATH="$HOME/.cargo/bin:$PATH"` to end of `~/.bashrc`, though this line is likely in the included bashrc in this repo.
+- Note: you can uninstall at anytime with `rustup self uninstall`
 
 ### Github
 1. set git username and email
 2. Google for Github setup-- you're going to need to generate a new shh key pair on your machine, then upload the public key to Github. I followed [these instructions](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/), creating an ssh key locally, with a passphrase that I stored in my fly keepass database.
 
-[Alt ssh key instructions](https://wiki.archlinux.org/index.php/SSH_keys#ssh-agent)
+[Alternative ssh key instructions](https://wiki.archlinux.org/index.php/SSH_keys#ssh-agent). Think you need to follow it to the end, adding the line to the "config" file.
 
 ### Install and set up Jekyll for my Github blog:
 1. Be sure rbenv is set up and a modern version of Ruby is set to global.
