@@ -70,22 +70,35 @@ Install Chrome from (https://www.google.com/chrome/browser/desktop/index.html). 
 - **Next thing to try**: all of this: https://websiteforstudents.com/installing-the-latest-flash-player-on-ubuntu-17-10/
 
 ## Dev Environment
-1. Install [rbenv (via "basic github checkout")](https://github.com/rbenv/rbenv#basic-github-checkout) and an up-to-date Ruby (and set that to global).
-2. [Install Rust](https://www.rust-lang.org/en-US/install.html) with `curl https://sh.rustup.rs -sSf | sh`
+
+### Ruby and rbenv
+1. Install [rbenv (via "basic github checkout")](https://github.com/rbenv/rbenv#basic-github-checkout) 
+2. Install [ruby-build](https://github.com/rbenv/ruby-build#installation) as an rbenv plugin. 
+3. You made need to run `sudo apt-get install -y libssl-dev libreadline-dev zlib1g-dev`
+4. `rbenv install -l` lists available versions of Ruby. Pick one to install. 
+5. Set that version to global.
+
+
+### Rust
+
+[Install Rust](https://www.rust-lang.org/en-US/install.html) with `curl https://sh.rustup.rs -sSf | sh`
     - I needed to add `export PATH="$HOME/.cargo/bin:$PATH"` to end of `~/.bashrc`, which is likely in the included bashrc in this repo.
     - Note: you can uninstall at anytime with `rustup self uninstall`
-3. Setup Github
-   1. set git username and email
-   2. Google for Github setup-- you're going to need to generate a new shh key pair on your machine, then upload the public key to Github. I followed [these instructions](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/), creating an ssh key locally, with a passphrase that I stored in my fly keepass database.
-4. Install and set up Jekyll for my Github blog:
-   1. Be sure rbenv is set up and a modern version of Ruby is set to global.
-   2. `gem install jekyll bundler`
-   3. `git clone git@github.com:sts10/sts10.github.io.git`
-   4. cd into the repo
-   5. `bundle exec install`
 
-   - To publish changes: commit changes, then run `bundle exec jekyll build`, then `git push origin master`
-5. [Disable blinking cursor in gnome-terminal](https://askubuntu.com/a/947573): In terminal: `gsettings set org.gnome.desktop.interface cursor-blink false`
+### Github
+1. set git username and email
+2. Google for Github setup-- you're going to need to generate a new shh key pair on your machine, then upload the public key to Github. I followed [these instructions](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/), creating an ssh key locally, with a passphrase that I stored in my fly keepass database.
+
+### Install and set up Jekyll for my Github blog:
+1. Be sure rbenv is set up and a modern version of Ruby is set to global.
+2. `gem install jekyll bundler`
+3. `git clone git@github.com:sts10/sts10.github.io.git`
+4. cd into the repo
+5. `bundle exec install`
+
+- To publish changes: commit changes, then run `bundle exec jekyll build`, then `git push origin master`
+
+### [Disable blinking cursor in gnome-terminal](https://askubuntu.com/a/947573): In terminal: `gsettings set org.gnome.desktop.interface cursor-blink false`
 
 You can update the Ruby versions available to rbenv by running `rbenv_upgrade` (found in `bashrc`).
 
