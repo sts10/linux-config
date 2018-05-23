@@ -45,6 +45,7 @@ Plug 'romainl/flattened'
 " language or filetype specific
 Plug 'vim-ruby/vim-ruby',          { 'for': ['ruby', 'eruby'] }
 Plug 'tpope/vim-rails',            { 'for': ['ruby', 'eruby'] }
+Plug 'rust-lang/rust.vim',         { 'for': 'rust' }
 Plug 'nelstrom/vim-markdown-folding',{ 'for': 'markdown' }
 Plug 'dhruvasagar/vim-table-mode', { 'for': ['csv', 'xls', 'xlsx'] }
 Plug 'junegunn/goyo.vim',          { 'for': ['markdown', 'html', 'text'] }
@@ -105,6 +106,10 @@ autocmd Filetype srt nmap gK <Plug>SplitCaption
 autocmd Filetype srt nmap gS mx^~`x
 autocmd Filetype srt nmap <C-s> mx^~`x
 
+" Rust formatter https://github.com/rust-lang/rust.vim#formatting-with-rustfmt
+" autocmd Filetype rust nnoremap == :RustFmt<CR>
+let g:rustfmt_autosave = 1
+
 " Easier page navigation
 nnoremap <C-e> <C-u>
 nnoremap <C-u> <C-e>
@@ -155,7 +160,7 @@ autocmd FileType html vnoremap <C-m> :'<,'> !/usr/local/bin/Markdown.pl --html4t
 " autocmd FileType html omap <C-m> :'<,'> !/usr/local/bin/Markdown.pl --html4tags<CR>
 
 " vim-markdown: enable enable fenced code block syntax highlighting in markdown documents
-let g:markdown_fenced_languages = ['html', 'css', 'javascript', 'ruby', 'python', 'bash=sh', 'yaml', 'json', 'vim', 'xml']
+let g:markdown_fenced_languages = ['html', 'css', 'javascript', 'ruby', 'python', 'bash=sh', 'yaml', 'json', 'vim', 'xml', 'rust']
 
 " nmap gx to visually select a URI and then open it in default browser
 " see: http://sts10.github.io/blog/2016/02/16/one-solution-to-a-problem-with-vims-gx-command/
@@ -268,8 +273,8 @@ autocmd FileType markdown setlocal wrap
 " And when Vim does wrap lines, have it break the lines on spaces and punctuation only (http://vim.wikia.com/wiki/Word_wrap_without_line_breaks)
 set linebreak
 
-" Save temporary/backup files not in the local directory, but in your ~/.vim
-" directory, to keep them out of git repos. 
+" Save temporary/backup files not in the local directory, but in your
+" ~/.config/nvim directory, to keep them out of git repos. 
 " But first mkdir backup, swap, and undo first to make this work
 call system('mkdir ~/.config/nvim')
 call system('mkdir ~/.config/nvim/backup')

@@ -4,7 +4,7 @@
 1. In settings > "Mouse and Track Pad", put "Mouse Speed" about in the dead center and turn off "Natural Scrolling"
 2. In Gnome Keyboard settings, change "Switch windows of an application" OR "Switch windows of an app directly" to "Super + Escape"
   - You may also want to remap commands like "View split on left" and "Move one monitor left", as well as the Workspace commands
-3. Download the Gnome Tweaks Tool via the POP app store. In Tweaks:
+3. Download the Gnome Tweaks Tool via the Pop app store. In Tweaks:
   - Remap Caps Lock to Control in "Keyboard & Mouse" > "Additional Layout Options". 
   - Suggested: Change "Mouse" "Acceleration Profile" to "Flat"
 4. Change your desktop background!
@@ -100,6 +100,10 @@ Weirdly the only place I could find this is in Gnome Tweak Tool (which I think I
 
 You can [download IBM Plex here](https://github.com/IBM/plex).
 
+## Images/Video
+
+For editing RAW photos, try Darktable. Here are some [free film emulators](https://github.com/t3mujin/t3mujinpack). There's also GIMP and Kdenlive (for video)!
+
 ## General tips:
 
 ### How to Mount an external harddrive that's formatted as exFAT
@@ -123,8 +127,24 @@ You can now encrypt and decrypt files with the pgp keys on your smartkey using t
 
 For a GPG GUI application, try `sudo apt install gpa` which installs a program called ["GNU Privacy Assistant"](https://help.ubuntu.com/community/GnuPrivacyGuardHowto#Graphical_Interfaces)
 
+### Putting a new distro on Oryx Pro
+
+Once you've got the USB stick in the computer, reboot your system. You’ll need to tell the computer to boot from the live disk by holding F7 or F1 [source](http://support.system76.com/articles/live-disk/). 
+
+If you're NOT going with Pop_OS, you'll likely need to install System76 drivers and the appropriate NVIDIA drivers. [More info on this here](https://support.system76.com/articles/system76-driver/).
+
+### Generic Upgrade Line
+
+On the command line, `sudo apt-get update && sudo apt-get dist-upgrade` is a good way to upgrade everything.
+
+### Redshift + Xorg + KDE
+
+If you're running KDE and Xorg, you'll likely need to use Redshift to tint your screen at night. "Redshift Control" is a KDE widget that gives you a nice GUI to configure Redshift (found by searching the "Get new widgets" interface).
+
 ### System76/Pop!\_OS Links
 
 [Support articles](http://support.system76.com/articles/)
 
 [Pop Docs](http://pop.system76.com/docs/)
+
+[Installing System76 and appropriate NVIDIA drivers for System76 machine](https://support.system76.com/articles/system76-driver/)
