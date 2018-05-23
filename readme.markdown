@@ -119,6 +119,10 @@ You can [download IBM Plex here](https://github.com/IBM/plex).
 
 For editing RAW photos, try Darktable. Here are some [free film emulators](https://github.com/t3mujin/t3mujinpack). There's also GIMP and Kdenlive (for video)!
 
+## KDE Troubleshooting
+
+If, after installing the proper NVIDIA drivers and restarting the machine, everything looks big, go to Fonts settings menu and "Force" the DPI to 96.
+
 ## General tips:
 
 ### How to Mount an external harddrive that's formatted as exFAT
