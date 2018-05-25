@@ -1,4 +1,4 @@
-# Notes on Initial Linux Desktop Setup (Pop_OS! and Gnome)
+# Notes on Initial Linux Desktop Setup (Pop_OS! + Gnome and KDE)
 
 ## Some System-Level Basics (Gnome)
 1. In settings > "Mouse and Track Pad", put "Mouse Speed" about in the dead center and turn off "Natural Scrolling"
@@ -20,6 +20,8 @@ curl -o ~/.bashrc https://raw.githubusercontent.com/sts10/linux-config/master/ba
 ## Konsole profile and Pink Moon colorsheme
 
 Move the contents of `plasma/konsole` to `~/.local/share/konsole`.
+
+If you need to, set a Custom color for cursor: #71798a and turn on blinking.
 
 ## Gnome-terminal profile
 
