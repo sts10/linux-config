@@ -17,6 +17,10 @@ I've got a few `.bashrc`s for you in the `bash` directory. The one called `bashr
 curl -o ~/.bashrc https://raw.githubusercontent.com/sts10/linux-config/master/bash/bashrc
 ```
 
+## Konsole profile and Pink Moon colorsheme
+
+Move the contents of `plasma/konsole` to `~/.local/share/konsole`.
+
 ## Gnome-terminal profile
 
 Via [this gist](https://gist.github.com/reavon/0bbe99150810baa5623e5f601aa93afc): 
