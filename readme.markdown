@@ -98,6 +98,8 @@ Install Chrome from (https://www.google.com/chrome/browser/desktop/index.html). 
 
 [Alternative ssh key instructions](https://wiki.archlinux.org/index.php/SSH_keys#ssh-agent). Think you need to follow it to the end, adding the line to the "config" file.
 
+Experimenting with [storing ssh key in KeePassXC database](https://keepassxc.org/docs/#faq-ssh-agent-how)
+
 ### Install and set up Jekyll for my Github blog:
 1. Be sure rbenv is set up and a modern version of Ruby is set to global.
 2. `gem install jekyll bundler`
