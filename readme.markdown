@@ -96,7 +96,7 @@ Install Chrome from (https://www.google.com/chrome/browser/desktop/index.html). 
 1. set git username and email
 2. Google for Github setup-- you're going to need to generate a new shh key pair on your machine, then upload the public key to Github. I followed [these instructions](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/), creating an ssh key locally, with a passphrase that I stored in my fly keepass database.
 
-[Alternative ssh key instructions](https://wiki.archlinux.org/index.php/SSH_keys#ssh-agent). Think you need to follow it to the end, adding the line to the "config" file.
+[Alternative ssh key instructions](https://wiki.archlinux.org/index.php/SSH_keys#ssh-agent). Think you need to follow it to the end, adding the line to the "config" file, as well as the `if` statement to my `bashrc`.
 
 Experimenting with [storing ssh key in KeePassXC database](https://keepassxc.org/docs/#faq-ssh-agent-how)
 
