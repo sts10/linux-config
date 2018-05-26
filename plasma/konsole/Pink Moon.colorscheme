@@ -1,5 +1,5 @@
 [Background]
-Color=51,60,71
+Color=42,46,56
 
 [BackgroundFaint]
 Color=67,72,82
@@ -35,7 +35,7 @@ Color=153,168,39
 Color=88,110,117
 
 [Color3]
-Color=253,248,206
+Color=208,135,133
 
 [Color3Faint]
 Color=213,170,49
