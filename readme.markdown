@@ -92,15 +92,29 @@ Install Chrome from (https://www.google.com/chrome/browser/desktop/index.html). 
 - I needed to add `export PATH="$HOME/.cargo/bin:$PATH"` to end of `~/.bashrc`, though this line is likely in the included bashrc in this repo.
 - Note: you can uninstall at anytime with `rustup self uninstall`
 
-### Github
-1. set git username and email
-2. Google for Github setup-- you're going to need to generate a new shh key pair on your machine, then upload the public key to Github. I followed [these instructions](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/), creating an ssh key locally, with a passphrase that I stored in my fly keepass database.
+### Github/ssh keys
 
-[Alternative ssh key instructions](https://wiki.archlinux.org/index.php/SSH_keys#ssh-agent). Think you need to follow it to the end, adding the line to the "config" file, as well as the `if` statement to my `bashrc`.
+1. Set git username (email) and email locally
 
-Experimenting with [storing ssh key in KeePassXC database](https://keepassxc.org/docs/#faq-ssh-agent-how)
+2. Generate a new shh key pair on your machine, then upload the public key to Github. I followed [these instructions](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/), creating an ssh key locally, with a passphrase that I stored in my keepass database.
 
-### Install and set up Jekyll for my Github blog:
+3. In the `bashrc` included in this repo is some code that handles your `ssh-agent`. I got it from [this section of the Arch Linux wiki](https://wiki.archlinux.org/index.php/SSH_keys#ssh-agent). Here's the bash code if you need:
+
+```bash
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    ssh-agent > ~/.ssh-agent-thing
+fi
+if [[ "$SSH_AGENT_PID" == "" ]]; then
+    eval "$(<~/.ssh-agent-thing)"
+fi
+```
+
+4. You may also need to add `AddKeysToAgent yes` to `~/.ssh/config`, as per [the Arch wiki entry](https://wiki.archlinux.org/index.php/SSH_keys#ssh-agent).
+
+Alternatively, you could try [storing ssh key in KeePassXC database](https://keepassxc.org/docs/#faq-ssh-agent-how), but I haven't had luck with that in the past.
+
+### Install and set up Jekyll for my Github blog
+
 1. Be sure rbenv is set up and a modern version of Ruby is set to global.
 2. `gem install jekyll bundler`
 3. `git clone git@github.com:sts10/sts10.github.io.git`
