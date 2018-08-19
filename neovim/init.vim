@@ -323,6 +323,10 @@ set autoindent
 set smartindent 
 set breakindent
 
+" indent <style> tag (see :help html_indenting)
+let g:html_indent_style1 = "auto"
+let g:html_indent_script1 = "auto"
+
 " turn on the wildmenu cuz everyone says to
 set wildmenu
 " search characters as they're entered
