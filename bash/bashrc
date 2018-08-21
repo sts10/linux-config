@@ -142,6 +142,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
+function open {
+  xdg-open $@
+}
+
 # ssh agent stuff (via https://wiki.archlinux.org/index.php/SSH_keys#ssh-agent)
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
   ssh-agent > ~/.ssh-agent-thing
