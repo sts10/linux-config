@@ -1,13 +1,5 @@
 # Notes on Initial Linux Desktop Setup (Pop_OS! + Gnome and KDE)
 
-## Some System-Level Basics (Gnome)
-1. In settings > "Mouse and Track Pad", put "Mouse Speed" about in the dead center and turn off "Natural Scrolling"
-2. In Gnome Keyboard settings, change "Switch windows of an application" OR "Switch windows of an app directly" to "Super + Escape"
-  - You may also want to remap commands like "View split on left" and "Move one monitor left", as well as the Workspace commands
-3. Download the Gnome Tweaks Tool via the Pop app store. In Tweaks:
-  - Remap Caps Lock to Control in "Keyboard & Mouse" > "Additional Layout Options". 
-  - Suggested: Change "Mouse" "Acceleration Profile" to "Flat"
-4. Change your desktop background!
 
 ## bashrc
 
@@ -56,7 +48,7 @@ curl -o ~/.config/nvim/init.vim https://raw.githubusercontent.com/sts10/linux-co
 
 ## Syncing and Security
 1. You're probably going to want to install snap with `sudo apt install snapd`
-2. I then installed KeePassXC with `snap install keepassxc`
+2. I then installed KeePassXC with `snap install keepassxc`, though the app image is good too.
 3. Next, I installed Syncthing via the instructions at the top of [this page](https://apt.syncthing.net/)
 4. I then setup Syncthing, including my KeePass database. 
 5. For a GPG GUI application, ["GNU Privacy Assistant"](https://help.ubuntu.com/community/GnuPrivacyGuardHowto#Graphical_Interfaces) gets the job done. To install it, I ran: `sudo apt install gpa`.
@@ -84,6 +76,7 @@ Install Chrome from (https://www.google.com/chrome/browser/desktop/index.html). 
 4. `rbenv install -l` lists available versions of Ruby. Pick one to install. 
 5. Set that version to global.
 
+You can update the Ruby versions available to rbenv by running `rbenv_upgrade` (found in `bashrc`).
 
 ### Rust
 
@@ -115,7 +108,7 @@ let g:racer_experimental_completer = 1
 
 1. Set git username (email) and email locally
 
-2. Generate a new shh key pair on your machine, then upload the public key to Github. I followed [these instructions](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/), creating an ssh key locally, with a passphrase that I stored in my keepass database.
+2. Generate a new shh key pair on your machine, then upload the public key to Github. I followed [these instructions](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/), creating an ssh key locally, with a passphrase that I stored in my Keepass database.
 
 3. In the `bashrc` included in this repo is some code that handles your `ssh-agent`. I got it from [this section of the Arch Linux wiki](https://wiki.archlinux.org/index.php/SSH_keys#ssh-agent). Here's the bash code if you need:
 
@@ -142,9 +135,20 @@ Alternatively, you could try [storing ssh key in KeePassXC database](https://kee
 
 - To publish changes: commit changes, then run `bundle exec jekyll build`, then `git push origin master`
 
-### [Disable blinking cursor in gnome-terminal](https://askubuntu.com/a/947573): In terminal: `gsettings set org.gnome.desktop.interface cursor-blink false`
 
-You can update the Ruby versions available to rbenv by running `rbenv_upgrade` (found in `bashrc`).
+## Gnome
+
+### Some System-Level Basics (Gnome)
+1. In settings > "Mouse and Track Pad", put "Mouse Speed" about in the dead center and turn off "Natural Scrolling"
+2. In Gnome Keyboard settings, change "Switch windows of an application" OR "Switch windows of an app directly" to "Super + Escape"
+  - You may also want to remap commands like "View split on left" and "Move one monitor left", as well as the Workspace commands
+3. Download the Gnome Tweaks Tool via the Pop app store. In Tweaks:
+  - Remap Caps Lock to Control in "Keyboard & Mouse" > "Additional Layout Options". 
+  - Suggested: Change "Mouse" "Acceleration Profile" to "Flat"
+4. Change your desktop background!
+
+5. [Disable blinking cursor in gnome-terminal](https://askubuntu.com/a/947573): In terminal: `gsettings set org.gnome.desktop.interface cursor-blink false`
+
 
 ## Changing Default Fonts
 Weirdly the only place I could find this is in Gnome Tweak Tool (which I think I installed via the GUI Pop software store). Here are the defaults and what I changed them to:
@@ -167,6 +171,10 @@ If, after installing the proper NVIDIA drivers and restarting the machine, every
 
 ## General tips:
 
+### How to Install from an AppImage if it's not going easily
+
+[This tutorial](https://itsfoss.com/use-appimage-linux/) instructs to right-click the download appimage file, go to "Properties" > "Permissions" and then check "Allow executing file as program". Alternatively `chmod u+x <AppImage File>` to make it executable.
+
 ### How to Mount an external harddrive that's formatted as exFAT
 Simply install these programs by running this line: `sudo apt-get install exfat-fuse exfat-utils` ([via](https://www.reddit.com/r/Ubuntu/comments/6r954q/mount_exfat_drive_in_ubuntu_1704/)). 
 
@@ -184,7 +192,7 @@ killall scdaemon
 pgrep scdaemon
 ```
 
-You can now encrypt and decrypt files with the pgp keys on your smartkey using the gpg2 command line tool. To decrypt a file run something like this: `gpg --output test --decrypt '/home/schlinkert/keepass-databases/key-files/fly1.key.gpg'`. Check that you can decrypt a keepass database AND that you can alter settings.
+You can now encrypt and decrypt files with the pgp keys on your smartkey using the gpg2 command line tool. To decrypt a file run something like this: `gpg --output test --decrypt '/home/schlinkert/keepass-databases/key-files/fly1.key.gpg'`. Check that you can decrypt a Keepass database AND that you can alter settings.
 
 For a GPG GUI application, try `sudo apt install gpa` which installs a program called ["GNU Privacy Assistant"](https://help.ubuntu.com/community/GnuPrivacyGuardHowto#Graphical_Interfaces)
 
