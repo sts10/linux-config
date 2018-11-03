@@ -87,10 +87,29 @@ Install Chrome from (https://www.google.com/chrome/browser/desktop/index.html). 
 
 ### Rust
 
-[Install Rust](https://www.rust-lang.org/en-US/install.html) with `curl https://sh.rustup.rs -sSf | sh`
+1. [Install Rust](https://www.rust-lang.org/en-US/install.html)
+ - I needed to add `export PATH="$HOME/.cargo/bin:$PATH"` to end of `~/.bashrc`, though this line is likely in the included bashrc in this repo.
+  - Note: you can uninstall at anytime with `rustup self uninstall`
 
-- I needed to add `export PATH="$HOME/.cargo/bin:$PATH"` to end of `~/.bashrc`, though this line is likely in the included bashrc in this repo.
-- Note: you can uninstall at anytime with `rustup self uninstall`
+2. Install [rustfmt](https://github.com/rust-lang-nursery/rustfmt) and [its Vim counterpart, rust.vim](https://github.com/rust-lang/rust.vim#formatting-with-rustfmt)
+
+3. Install [Rust Clippy](https://github.com/rust-lang-nursery/rust-clippy#usage)
+
+4. Install pip3 with `sudo apt-get install python3-pip` and then `pip3 install neovim`
+
+5. Check [Deoplete](https://github.com/Shougo/deoplete.nvim) installed
+
+6. Install [Racer](https://github.com/racer-rust/racer)
+
+7. Make sure [Vim Racer](https://github.com/racer-rust/vim-racer) is installed. My vim-racer config is:
+
+```vim
+Plug 'racer-rust/vim-racer'
+set hidden
+let g:racer_cmd = "/home/sschlinkert/.cargo/bin/racer"
+let g:racer_experimental_completer = 1
+```
+
 
 ### Github/ssh keys
 
@@ -109,7 +128,7 @@ if [[ "$SSH_AGENT_PID" == "" ]]; then
 fi
 ```
 
-4. You may also need to add `AddKeysToAgent yes` to `~/.ssh/config`, as per [the Arch wiki entry](https://wiki.archlinux.org/index.php/SSH_keys#ssh-agent).
+4. `touch ~/.ssh/config` and in that file write `AddKeysToAgent yes`, as per [the Arch wiki entry](https://wiki.archlinux.org/index.php/SSH_keys#ssh-agent).
 
 Alternatively, you could try [storing ssh key in KeePassXC database](https://keepassxc.org/docs/#faq-ssh-agent-how), but I haven't had luck with that in the past.
 

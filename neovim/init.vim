@@ -3,7 +3,7 @@
 " call plug#begin('~/.vim/plugged')
 call plug#begin('~/.config/nvim/plugged')
 " Basics
-Plug 'matze/vim-move'
+" Plug 'matze/vim-move'
 Plug 'tpope/vim-commentary'
 Plug 'sickill/vim-pasta'
 Plug 'justinmk/vim-sneak'
@@ -41,6 +41,21 @@ Plug 'junegunn/seoul256.vim'
 Plug 'jacoborus/tender'
 Plug 'altercation/vim-colors-solarized'
 Plug 'romainl/flattened'
+
+" autocomplete
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
+
+Plug 'racer-rust/vim-racer'
+set hidden
+let g:racer_cmd = "/home/sschlinkert/.cargo/bin/racer"
+let g:racer_experimental_completer = 1
 
 " language or filetype specific
 Plug 'vim-ruby/vim-ruby',          { 'for': ['ruby', 'eruby'] }
@@ -90,14 +105,22 @@ let g:ctrlp_map = '<c-p>'
 nnoremap <Leader>s :split<CR><c-w>j<c-p>
 nnoremap <Leader>v :vsplit<CR><c-w>l<c-p>
 
+" vim-move set to <C-k> and <C-j>
+" let g:move_key_modifier = 'C'
+
+" Bubbling with vim-impaired.
+" Can't figure out why I can't make these noremap...
+nmap <C-j> ]e==
+nmap <C-k> [e==
+vmap <C-j> ]e==gv
+vmap <C-k> [e==gv
+
 " map control + l to commentary toggle comment for one line or visual
 " selection
 nmap <C-l> gcc
 vmap <C-l> gcgv
 imap <C-l> <ESC>gcc
 
-" vim-move set to <C-k> and <C-j>
-let g:move_key_modifier = 'C'
 
 " vim-closed-captioning
 autocmd Filetype srt nmap gJ <Plug>JoinCaption
