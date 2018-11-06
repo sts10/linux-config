@@ -58,7 +58,7 @@ let g:deoplete#enable_at_startup = 1
 
 Plug 'racer-rust/vim-racer', { 'for': ['rust', 'toml'] }
 set hidden
-let g:racer_cmd = "/home/sschlinkert/.cargo/bin/racer"
+let g:racer_cmd = "~/.cargo/bin/racer"
 let g:racer_experimental_completer = 1
 
 " language or filetype specific
@@ -473,28 +473,43 @@ vmap x "_d
 nnoremap c "_c
 vnoremap c "_c
 
-" 0 is the 'yank register', and the ] formats it to indent you're pasting into. This command does all that with control + p (from http://vimcasts.org/episodes/meet-the-yank-register/)
-"nmap <c-p> "0]P
-
 " use leader to interact with the system clipboard {{{
-nnoremap <Leader>p "+]p
-nnoremap <Leader>P "+]P
+let os = substitute(system('uname'), "\n", "", "")
+if os == "Linux"
+  nnoremap <Leader>p "+]p
+  nnoremap <Leader>P "+]P
 
-nnoremap <Leader>y :y+<cr>
-" nnoremap <Leader>y ma^"+y$`a
-nnoremap <Leader>c ^"+c$
-nnoremap <Leader>d ^"+d$
+  nnoremap <Leader>y :y+<cr>
+  " nnoremap <Leader>y ma^"+y$`a
+  nnoremap <Leader>c ^"+c$
+  nnoremap <Leader>d ^"+d$
 
-vnoremap <Leader>y "+y
-vnoremap <Leader>c "+c
-vnoremap <Leader>d "+d
+  vnoremap <Leader>y "+y
+  vnoremap <Leader>c "+c
+  vnoremap <Leader>d "+d
 
+
+  " place whole file on the system clipboard (and return cursor to where it was)
+  nnoremap <Leader>a :%y+<cr>
+else
+  nnoremap <Leader>p "*]p
+  nnoremap <Leader>P "*]P
+
+  nnoremap <Leader>y :y*<cr>
+  " nnoremap <Leader>y ma^"*y$`a
+  nnoremap <Leader>c ^"*c$
+  nnoremap <Leader>d ^"*d$
+
+  vnoremap <Leader>y "*y
+  vnoremap <Leader>c "*c
+  vnoremap <Leader>d "*d
+
+
+  " place whole file on the system clipboard (and return cursor to where it was)
+  " nmap <Leader>a maggVG"*y`a
+  nnoremap <Leader>a :%y*<cr>
+endif
 " }}}
-
-" place whole file on the system clipboard (and return cursor to where it was)
-" nmap <Leader>a maggVG"*y`a
-" nnoremap <Leader>a :%y*<cr>
-nnoremap <Leader>a :%y+<cr>
 
 " highlight last inserted text
 nnoremap gV `[v`]
