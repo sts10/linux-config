@@ -16,6 +16,7 @@ Plug 'terryma/vim-smooth-scroll'
 Plug 'bronson/vim-visual-star-search'
 Plug 'wellle/targets.vim'
 Plug 'tpope/vim-unimpaired'
+Plug 'google/vim-searchindex'
 Plug 'tmhedberg/matchit',          { 'for': ['html', 'xml'] }
 Plug 'sts10/vim-zipper'
 " Plug '~/Documents/code/vim-zipper'
@@ -41,6 +42,9 @@ Plug 'junegunn/seoul256.vim'
 Plug 'jacoborus/tender'
 Plug 'altercation/vim-colors-solarized'
 Plug 'romainl/flattened'
+Plug 'nightsense/seabird'
+Plug 'nightsense/carbonized'
+Plug 'flazz/vim-colorschemes'
 
 " autocomplete
 if has('nvim')
@@ -52,7 +56,7 @@ else
 endif
 let g:deoplete#enable_at_startup = 1
 
-Plug 'racer-rust/vim-racer'
+Plug 'racer-rust/vim-racer', { 'for': ['rust', 'toml'] }
 set hidden
 let g:racer_cmd = "/home/sschlinkert/.cargo/bin/racer"
 let g:racer_experimental_completer = 1
@@ -242,7 +246,6 @@ syntax on
 " set font for gui vim
 set guifont=DejaVu\ Sans\ Mono:h20
 colorscheme pink-moon
-" colorscheme flattened_dark
 set background=dark
 
 " Display relative line numbers
@@ -292,6 +295,7 @@ set nowrap
 autocmd FileType text setlocal wrap
 autocmd FileType html setlocal wrap
 autocmd FileType markdown setlocal wrap
+autocmd FileType srt setlocal wrap
 
 " And when Vim does wrap lines, have it break the lines on spaces and punctuation only (http://vim.wikia.com/wiki/Word_wrap_without_line_breaks)
 set linebreak
@@ -347,6 +351,7 @@ set smartindent
 set breakindent
 
 " indent <style> tag (see :help html_indenting)
+" https://www.reddit.com/r/vim/comments/97e33c/autoindent_bugs_regarding_html_style_tags/e47ivb9/
 let g:html_indent_style1 = "auto"
 let g:html_indent_script1 = "auto"
 
@@ -525,6 +530,19 @@ endfunction
 
 autocmd FileType javascript nnoremap gJ mjggvGJ<Esc>`j
 autocmd FileType javascript nnoremap gK :call UnMinify()<CR>
+
+function! MinCopy()
+  echo "running"
+  echom "running"
+  normal mjggVGJ
+  normal "*yy
+  %s/{\ze[^\r\n]/{\r/ge
+  %s/};\?\ze[^\r\n]/\0\r/ge
+  %s/;\ze[^\r\n]/;\r/ge
+  normal ggVG=`j
+endfunction
+
+nnoremap gb :call MinCopy()<CR><CR>
 
 " insert word of the line above
 inoremap <C-Y> <C-C>:let @z = @"<CR>mz
