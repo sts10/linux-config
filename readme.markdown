@@ -37,6 +37,8 @@ If there's a problem, `dconf dump /org/gnome/terminal/legacy/profiles:/` might b
 
 Before you do anything below, especially with Neovim or Vim, install git! `sudo apt install git`
 
+Given the holistic setup in this document, you're going to want to use the ssh URL when cloning down repos from GitHub (as opposed to HTTPS).
+
 ## Neovim
 
 I think I used the stable ppa and followed [these instructions](https://github.com/neovim/neovim/wiki/Installing-Neovim#ubuntu). A decent init.vim file is contained in this repo. 
@@ -124,6 +126,8 @@ fi
 4. `touch ~/.ssh/config` and in that file write `AddKeysToAgent yes`, as per [the Arch wiki entry](https://wiki.archlinux.org/index.php/SSH_keys#ssh-agent).
 
 Alternatively, you could try [storing ssh key in KeePassXC database](https://keepassxc.org/docs/#faq-ssh-agent-how), but I haven't had luck with that in the past.
+
+Given this setup, you're going to want to use the ssh URL (`git@github.com:sts10/terminal_and_vim_settings.git`) when cloning down repos from GitHub (as opposed to HTTPS).
 
 ### Install and set up Jekyll for my Github blog
 
