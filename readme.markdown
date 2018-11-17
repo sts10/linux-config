@@ -228,6 +228,10 @@ sudo apt-get install plasma-widget-redshift plasma-applet-redshift-control
 
 For gtk-based desktop environments like GNOME, you're probably going to want to run `sudo apt-get install redshift redshift-gtk`
 
+#### Configuring Redshift in Plasma
+
+First, I'd recommend moving the widget to the task bar. Then, to configure it, simply right-click the widget and click configure. Hit "Locate" to automatically locate your position. Then for temperature 6500 for Day and 3250 for Night seems to work well.
+
 ### System76/Pop!\_OS Links
 
 [Support articles](http://support.system76.com/articles/)
