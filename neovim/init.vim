@@ -15,7 +15,8 @@ Plug 'tpope/vim-repeat'
 Plug 'terryma/vim-smooth-scroll'
 Plug 'bronson/vim-visual-star-search'
 Plug 'wellle/targets.vim'
-Plug 'tpope/vim-unimpaired'
+" Plug 'tpope/vim-unimpaired'
+Plug 'sts10/vim-move'
 Plug 'google/vim-searchindex'
 Plug 'tmhedberg/matchit',          { 'for': ['html', 'xml'] }
 Plug 'sts10/vim-zipper'
@@ -110,14 +111,14 @@ nnoremap <Leader>s :split<CR><c-w>j<c-p>
 nnoremap <Leader>v :vsplit<CR><c-w>l<c-p>
 
 " vim-move set to <C-k> and <C-j>
-" let g:move_key_modifier = 'C'
+let g:move_key_modifier = 'C'
 
 " Bubbling with vim-impaired.
 " Can't figure out why I can't make these noremap...
-nmap <C-j> ]e==
-nmap <C-k> [e==
-vmap <C-j> ]e==gv
-vmap <C-k> [e==gv
+" nmap <C-j> ]e==
+" nmap <C-k> [e==
+" vmap <C-j> ]e==gv
+" vmap <C-k> [e==gv
 
 " map control + l to commentary toggle comment for one line or visual
 " selection
