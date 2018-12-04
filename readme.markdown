@@ -3,7 +3,7 @@
 
 ## bashrc
 
-I've got a few `.bashrc`s for you in the `bash` directory. The one called `bashrc` has my preferred prompt coded out, plus the neccessary settings for both `rbenv` and Rust. To use that one, run:
+I've got a few `.bashrc`s for you in the `bash` directory. The one called `bashrc` has my preferred prompt coded out, plus the necessary settings for both `rbenv` and Rust. To use that one, run:
 
 ```
 curl -o ~/.bashrc https://raw.githubusercontent.com/sts10/linux-config/master/bash/bashrc
