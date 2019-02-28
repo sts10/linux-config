@@ -15,16 +15,12 @@ Plug 'tpope/vim-repeat'
 Plug 'terryma/vim-smooth-scroll'
 Plug 'bronson/vim-visual-star-search'
 Plug 'wellle/targets.vim'
-" Plug 'tpope/vim-unimpaired'
 Plug 'sts10/vim-move'
+" Plug 'tpope/vim-unimpaired'
 Plug 'google/vim-searchindex'
 Plug 'tmhedberg/matchit',          { 'for': ['html', 'xml'] }
 Plug 'sts10/vim-zipper'
 " Plug '~/Documents/code/vim-zipper'
-
-" Plug 'AndrewRadev/splitjoin.vim'
-" Plug 'terryma/vim-multiple-cursors'
-" Plug 'metakirby5/codi.vim'
 
 " Status Bar
 Plug 'tpope/vim-fugitive'
@@ -40,6 +36,7 @@ Plug 'rstacruz/vim-xtract'
 Plug 'sts10/vim-pink-moon'
 Plug 'sts10/vim-mustard'
 Plug 'junegunn/seoul256.vim'
+Plug 'reedes/vim-colors-pencil'
 Plug 'jacoborus/tender'
 Plug 'altercation/vim-colors-solarized'
 Plug 'romainl/flattened'
@@ -55,20 +52,24 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
-let g:deoplete#enable_at_startup = 1
 
+" Language Server Client
+Plug 'autozimu/LanguageClient-neovim', {
+\ 'branch': 'next',
+\ 'do': 'bash install.sh',
+\ }
+
+Plug 'junegunn/fzf'
 Plug 'racer-rust/vim-racer', { 'for': ['rust', 'toml'] }
-set hidden
-let g:racer_cmd = "~/.cargo/bin/racer"
-let g:racer_experimental_completer = 1
 
 " language or filetype specific
+Plug 'rust-lang/rust.vim',         { 'for': 'rust' }
 Plug 'vim-ruby/vim-ruby',          { 'for': ['ruby', 'eruby'] }
 Plug 'tpope/vim-rails',            { 'for': ['ruby', 'eruby'] }
-Plug 'rust-lang/rust.vim',         { 'for': 'rust' }
 Plug 'nelstrom/vim-markdown-folding',{ 'for': 'markdown' }
 Plug 'dhruvasagar/vim-table-mode', { 'for': ['csv', 'xls', 'xlsx'] }
 Plug 'junegunn/goyo.vim',          { 'for': ['markdown', 'html', 'text'] }
+Plug 'junegunn/limelight.vim',     { 'for': ['markdown', 'html', 'text'] }
 Plug 'tpope/vim-markdown',         { 'for': 'markdown' }
 " Plug 'plasticboy/vim-markdown',    { 'for': 'markdown' }
 Plug 'othree/html5.vim'
@@ -104,6 +105,23 @@ let mapleader = "\<Space>"
 """""""""""""""""""""""""""""""
 " Plugin Settings             " {{{
 """""""""""""""""""""""""""""""
+
+" deoplete
+let g:deoplete#enable_at_startup = 1
+
+" Language Server Config
+let g:LanguageClient_serverCommands = {
+\ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+\ }
+
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+" got an error with this on only attempt
+nnoremap <silent> gr :call LanguageClient#textDocument_rename()<CR>
+
+" Racer (Rust autocomplete)
+let g:racer_cmd = "~/.cargo/bin/racer"
+let g:racer_experimental_completer = 1
 
 " Ctrl- P mapping and two custom split keymappings (https://github.com/kien/ctrlp.vim)
 let g:ctrlp_map = '<c-p>'
@@ -159,13 +177,42 @@ vmap <S-Tab> <Plug>Sneak_S
 " nmap S <Plug>Sneak_S
 
 " Goyo (distraction-free)
-let g:goyo_width="80%"
+let g:goyo_width = 68
 nnoremap <Leader>g :Goyo<CR>
 function! s:goyo_enter()
-  set scrolloff=999
+  set noshowcmd            " Don't show last command
+  set noshowmode           " Don't show current mode
+  set scrolloff=999        " Centre current line
+  Limelight                " Enable paragraph focus mode
+  if has('gui_running')
+    colorscheme pencil
+    set background=light
+    set fullscreen         " Enter fullscreen (don't use Mac native fullscreen for this)
+    set linespace=7        " Extra leading is better for prose
+  elseif exists('$TMUX')   " Hide tmux bar
+    silent !tmux set status off
+  endif
+  let &l:statusline = '%M' " Show modified state on the bottom of the screen
+  " This automatically disables on Goyo leave
+  hi StatusLine
+        \ ctermfg=137
+        \ guifg=#be9873
+        \ cterm=NONE
+        \ gui=NONE
 endfunction
 function! s:goyo_leave()
-  set scrolloff=5
+  set showcmd            " Show last command
+  set showmode           " Show current mode
+  set scrolloff=5        " Always show five lines of context around the cursor
+  Limelight!             " Disable paragraph focus mode
+  colorscheme pink-moon          
+  set background=dark
+  if has('gui_running')
+    set nofullscreen     " Exit fullscreen
+    set linespace=3      " Standard leading
+  elseif exists('$TMUX') " Enable tmux bar
+    silent !tmux set status on
+  endif
 endfunction
 
 " Construct statusline
@@ -234,6 +281,8 @@ set guicursor=
 " Standard Set Up           " {{{ 
 """""""""""""""""""""""""""""
 
+set hidden
+
 " More colors
 if !has('gui_running')
   "set t_Co=256
@@ -252,7 +301,6 @@ set background=dark
 " Display relative line numbers
 set relativenumber
 " display the absolute line number at the line you're on
-" set nu!
 set number
 " Keep the line number gutter narrow
 set numberwidth=2
@@ -342,9 +390,9 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 
-" tabs are 4 spaces for python files, cuz lol python
-autocmd FileType python setlocal tabstop=4
-autocmd FileType python setlocal shiftwidth=4
+" tabs are 4 spaces for these files
+autocmd FileType markdown,rust,python setlocal tabstop=4
+autocmd FileType markdown,rust,python setlocal shiftwidth=4
 
 " auto indent
 set autoindent
@@ -429,11 +477,6 @@ autocmd FileType html,markdown,text nnoremap <expr> k v:count ? 'k' : 'gk'
 autocmd FileType html,markdown,text vnoremap <expr> j v:count ? 'j' : 'gj'
 autocmd FileType html,markdown,text vnoremap <expr> k v:count ? 'k' : 'gk'
 
-" autocmd FileType markdown nnoremap <expr> j v:count ? 'j' : 'gj'
-" autocmd FileType markdown nnoremap <expr> k v:count ? 'k' : 'gk'
-" autocmd FileType text nnoremap <expr> j v:count ? 'j' : 'gj'
-" autocmd FileType text nnoremap <expr> k v:count ? 'k' : 'gk'
-
 " Make the dot command work as expected in visual mode (via
 " https://www.reddit.com/r/vim/comments/3y2mgt/do_you_have_any_minor_customizationsmappings_that/cya0x04)
 vnoremap . :norm.<CR>
@@ -449,8 +492,12 @@ endfunction
 
 " In markdown files, Control + a surrounds highlighted text with square
 " brackets, then dumps system clipboard contents into parenthesis
-" autocmd FileType markdown vnoremap <c-a> <Esc>`<i[<Esc>`>la](<Esc>"*]pa)<Esc>
-autocmd FileType markdown vnoremap <c-a> <Esc>`<i[<Esc>`>la](<Esc>"+]pa)<Esc>
+let os = substitute(system('uname'), "\n", "", "")
+if os == "Linux"
+  autocmd FileType markdown vnoremap <c-a> <Esc>`<i[<Esc>`>la](<Esc>"+]pa)<Esc>
+else
+  autocmd FileType markdown vnoremap <c-a> <Esc>`<i[<Esc>`>la](<Esc>"*]pa)<Esc>
+endif
 
 " autocmd FileType markdown nnoremap <c-t> yiwi[<Esc>ea](https://twitter.com/<Esc>pa)<Esc>
 
@@ -551,7 +598,12 @@ function! MinCopy()
   echo "running"
   echom "running"
   normal mjggVGJ
-  normal "*yy
+  let os = substitute(system('uname'), "\n", "", "")
+  if os == "Linux"
+    normal "+yy
+  else
+    normal "*yy
+  endif
   %s/{\ze[^\r\n]/{\r/ge
   %s/};\?\ze[^\r\n]/\0\r/ge
   %s/;\ze[^\r\n]/;\r/ge
