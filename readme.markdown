@@ -1,5 +1,6 @@
-# Notes on Initial Linux Desktop Setup (Pop_OS! + Gnome and KDE)
+# Linux Config Files and Other Notes
 
+I've moved most of my notes to [my docs mdbook](https://sts10.github.io/docs/). This repo is mostly for configuration code files.
 
 ## bashrc
 
